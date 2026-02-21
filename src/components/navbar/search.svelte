@@ -1,6 +1,5 @@
 <script lang="ts">
 import { onMount, onDestroy } from "svelte";
-import Icon from "@iconify/svelte";
 
 import type { SearchResult } from "@/global";
 import { url } from "@utils/url";
@@ -227,7 +226,7 @@ onDestroy(() => {
     onmouseenter={() => {if (!isDesktopSearchExpanded) toggleDesktopSearch()}}
     onmouseleave={collapseDesktopSearch}
 >
-    <Icon icon="material-symbols:search" class="absolute text-[1.25rem] pointer-events-none {isDesktopSearchExpanded ? 'ml-3' : 'left-1/2 -translate-x-1/2'} transition my-auto {isDesktopSearchExpanded ? 'text-black/30 dark:text-white/30' : ''}"></Icon>
+    <svg class="absolute text-[1.25rem] pointer-events-none {isDesktopSearchExpanded ? 'ml-3' : 'left-1/2 -translate-x-1/2'} transition my-auto {isDesktopSearchExpanded ? 'text-black/30 dark:text-white/30' : ''}" width="24" height="24"><use href="/assets/icons.svg#icon-search"></use></svg>
     <input id="search-input-desktop" placeholder="{i18n(I18nKey.search)}" bind:value={keywordDesktop}
         onfocus={() => {if (!isDesktopSearchExpanded) toggleDesktopSearch(); search(keywordDesktop, true)}}
         onblur={handleBlur}
@@ -239,7 +238,7 @@ onDestroy(() => {
 <!-- toggle btn for phone/tablet view -->
 <button onclick={togglePanel} aria-label="Search Panel" id="search-switch"
         class="btn-plain scale-animation lg:hidden! rounded-lg w-11 h-11 active:scale-90">
-    <Icon icon="material-symbols:search" class="text-[1.25rem]"></Icon>
+    <svg class="text-[1.25rem]" width="24" height="24"><use href="/assets/icons.svg#icon-search"></use></svg>
 </button>
 
 <!-- search panel -->
@@ -252,7 +251,7 @@ onDestroy(() => {
       bg-black/4 hover:bg-black/6 focus-within:bg-black/6
       dark:bg-white/5 dark:hover:bg-white/10 dark:focus-within:bg-white/10
   ">
-        <Icon icon="material-symbols:search" class="absolute text-[1.25rem] pointer-events-none ml-3 transition my-auto text-black/30 dark:text-white/30"></Icon>
+        <svg class="absolute text-[1.25rem] pointer-events-none ml-3 transition my-auto text-black/30 dark:text-white/30" width="24" height="24"><use href="/assets/icons.svg#icon-search"></use></svg>
         <input placeholder="Search" bind:value={keywordMobile}
                class="pl-10 absolute inset-0 text-sm bg-transparent outline-0
                focus:w-60 text-black/50 dark:text-white/50"
@@ -265,7 +264,7 @@ onDestroy(() => {
            class="transition first-of-type:mt-2 lg:first-of-type:mt-0 group block
        rounded-xl text-lg px-3 py-2 hover:bg-(--btn-plain-bg-hover) active:bg-(--btn-plain-bg-active)">
             <div class="transition text-90 inline-flex font-bold group-hover:text-(--primary)">
-                {item.meta.title}<Icon icon="fa6-solid:chevron-right" class="transition text-[0.75rem] translate-x-1 my-auto text-(--primary)"></Icon>
+                {item.meta.title}<svg class="transition text-[0.75rem] translate-x-1 my-auto text-(--primary)" width="24" height="24"><use href="/assets/icons.svg#icon-chevron-right"></use></svg>
             </div>
             <div class="transition text-sm text-50">
                 {@html item.excerpt}

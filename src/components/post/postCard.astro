@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 import { render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
@@ -52,10 +51,10 @@ const imageBaseDir = getFileDirFromPath(entry.filePath || "");
             before:w-1 before:h-5 before:rounded-md before:bg-(--primary)
             before:absolute before:top-[35px] before:left-[18px] before:hidden md:before:block
         ">
-            {pinned && <Icon name="mdi:pin" class="inline text-(--primary) text-2xl mr-2 -translate-y-0.5"></Icon>}
+            {pinned && <svg class="inline text-(--primary) text-2xl mr-2 -translate-y-0.5" width="32" height="32"><use href="/assets/icons.svg#icon-pin"></use></svg>}
             {title}
-            <Icon class="inline text-[2rem] text-(--primary) md:hidden translate-y-0.5 absolute" name="material-symbols:chevron-right-rounded" ></Icon>
-            <Icon class="text-(--primary) text-[2rem] transition hidden md:inline absolute translate-y-0.5 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0" name="material-symbols:chevron-right-rounded"></Icon>
+            <svg class="inline text-[2rem] text-(--primary) md:hidden translate-y-0.5 absolute" width="32" height="32"><use href="/assets/icons.svg#icon-chevron-right-rounded"></use></svg>
+            <svg class="text-(--primary) text-[2rem] transition hidden md:inline absolute translate-y-0.5 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0" width="32" height="32"><use href="/assets/icons.svg#icon-chevron-right-rounded"></use></svg>
         </a>
         <!-- metadata -->
         <PostMetadata published={published} updated={updated} tags={tags} category={category || undefined} hideTagsForMobile={true} hideUpdateDate={true} postUrl={url} className="mb-4"></PostMetadata>
@@ -83,9 +82,7 @@ const imageBaseDir = getFileDirFromPath(entry.filePath || "");
         >
             <div class="absolute pointer-events-none z-10 w-full h-full group-hover:bg-black/30 group-active:bg-black/50 transition"></div>
             <div class="absolute pointer-events-none z-20 w-full h-full flex items-center justify-center ">
-                <Icon name="material-symbols:chevron-right-rounded"
-                    class="transition opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 text-white text-5xl">
-                </Icon>
+                <svg class="transition opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 text-white text-5xl" width="80" height="80"><use href="/assets/icons.svg#icon-chevron-right-rounded"></use></svg>
             </div>
             <ImageWrapper src={cover} basePath={imageBaseDir} alt="Cover Image of the Post"
                     class="w-full h-full">
@@ -98,9 +95,7 @@ const imageBaseDir = getFileDirFromPath(entry.filePath || "");
             absolute right-3 top-3 bottom-3 rounded-xl bg-(--enter-btn-bg)
             hover:bg-(--enter-btn-bg-hover) active:bg-(--enter-btn-bg-active) active:scale-95
         ">
-            <Icon name="material-symbols:chevron-right-rounded"
-                class="transition text-(--primary) text-4xl mx-auto">
-            </Icon>
+            <svg class="transition text-(--primary) text-4xl mx-auto" width="64" height="64"><use href="/assets/icons.svg#icon-chevron-right-rounded"></use></svg>
         </a>
     }
 </div>

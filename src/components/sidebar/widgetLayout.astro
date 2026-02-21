@@ -1,6 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
-
 import { i18n } from "@i18n/translation";
 import I18nKey from "@i18n/i18nKey";
 
@@ -27,7 +25,7 @@ const className = Astro.props.class;
     {isCollapsed && <div class="expand-btn px-4 -mb-2">
         <button class="btn-plain rounded-lg w-full h-9">
             <div class="text-(--primary) flex items-center justify-center gap-2 -translate-x-2">
-                <Icon name="material-symbols:more-horiz" class="text-[1.75rem]"></Icon> {i18n(I18nKey.more)}
+                <svg class="text-[1.75rem]" width="28" height="28"><use href="/assets/icons.svg#icon-more-horiz"></use></svg> {i18n(I18nKey.more)}
             </div>
         </button>
     </div>}

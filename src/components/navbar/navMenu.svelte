@@ -1,5 +1,4 @@
 <script lang="ts">
-import Icon from "@iconify/svelte";
 import { onMount } from "svelte";
 
 import type { NavbarLink } from "@/types/config";
@@ -39,7 +38,7 @@ onMount(() => {
         id="nav-menu-switch"
         onclick={togglePanel}
     >
-        <Icon icon="material-symbols:menu-rounded" class="text-[1.25rem]"></Icon>
+        <svg class="text-[1.25rem]" width="24" height="24"><use href="/assets/icons.svg#icon-menu-rounded"></use></svg>
     </button>
     <div id="nav-menu-panel" 
         class="float-panel fixed transition-all right-4 px-2 py-2 max-h-[80vh] overflow-y-auto"
@@ -53,14 +52,16 @@ onMount(() => {
                 >
                     <div class="flex items-center transition text-black/75 dark:text-white/75 font-bold group-hover:text-(--primary) group-active:text-(--primary)">
                         {#if link.icon}
-                            <Icon icon={link.icon} class="text-[1.1rem] mr-2" />
+                            <svg class="text-[1.1rem] mr-2" width="18" height="18">
+                                <use href={"/assets/icons.svg#icon-" + link.icon.replace('fa6-brands:', '').replace('fa6-solid:', '').replace('fa6-regular:', '').replace('material-symbols:', '').replace('mdi:', '')}></use>
+                            </svg>
                         {/if}
                         {link.name}
                     </div>
                     {#if !link.external}
-                        <Icon icon="material-symbols:chevron-right-rounded" class="transition text-[1.25rem] text-(--primary)" />
+                        <svg class="transition text-[1.25rem] text-(--primary)" width="24" height="24"><use href="/assets/icons.svg#icon-chevron-right-rounded"></use></svg>
                     {:else}
-                        <Icon icon="fa6-solid:arrow-up-right-from-square" class="transition text-[0.75rem] text-black/25 dark:text-white/25 -translate-x-1" />
+                        <svg class="transition text-[0.75rem] text-black/25 dark:text-white/25 -translate-x-1" width="12" height="12"><use href="/assets/icons.svg#icon-external"></use></svg>
                     {/if}
                 </a>
             </div>

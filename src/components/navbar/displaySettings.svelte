@@ -1,5 +1,4 @@
 <script lang="ts">
-import Icon from "@iconify/svelte";
 import { onMount } from "svelte";
 
 import { BREAKPOINT_LG } from "@constants/breakpoints";
@@ -58,7 +57,7 @@ $effect(() => {
         onclick={() => { if (window.innerWidth < BREAKPOINT_LG) { openPanel(); } else { togglePanel(); } }}
         onmouseenter={openPanel}
     >
-        <Icon icon="material-symbols:palette-outline" class="text-[1.25rem]"></Icon>
+        <svg class="text-[1.25rem]" width="24" height="24"><use href="/assets/icons.svg#icon-palette"></use></svg>
     </button>
     <div id="display-setting-wrapper" class="fixed top-14.5 pt-5 right-4 w-[calc(100vw-2rem)] max-w-80 md:absolute md:top-11 md:right-0 md:w-80 md:pt-5 transition-all z-50" class:float-panel-closed={!isOpen}>
         <div id="display-setting" class="card-base float-panel px-4 py-4 w-full">
@@ -71,7 +70,7 @@ $effect(() => {
                     <button aria-label="Reset to Default" class="btn-regular w-7 h-7 rounded-md  active:scale-90"
                             class:opacity-0={hue === defaultHue} class:pointer-events-none={hue === defaultHue} onclick={resetHue}>
                         <div class="text-(--btn-content)">
-                            <Icon icon="fa6-solid:arrow-rotate-left" class="text-[0.875rem]"></Icon>
+                            <svg class="text-[0.875rem]" width="24" height="24"><use href="/assets/icons.svg#icon-arrow-rotate-left"></use></svg>
                         </div>
                     </button>
                 </div>

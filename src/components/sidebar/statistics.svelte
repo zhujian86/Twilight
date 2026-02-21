@@ -1,6 +1,5 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import Icon from "@iconify/svelte";
     import dayjs from 'dayjs';
 
     import { BREAKPOINT_LG } from "@constants/breakpoints";
@@ -444,7 +443,7 @@
                         <button class="time-scale-select flex items-center gap-1">
                             {labels[timeScale]}
                             <span class="dropdown-icon flex items-center">
-                                <Icon icon="material-symbols:keyboard-arrow-down-rounded" />
+                                <svg width="24" height="24"><use href="/assets/icons.svg#icon-keyboard-arrow-down-rounded"></use></svg>
                             </span>
                         </button>
                         <div class="dropdown-menu-custom">

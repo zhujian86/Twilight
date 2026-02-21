@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 ---
 
 <!-- There can't be a filter on parent element, or it will break `fixed` -->
@@ -7,7 +6,7 @@ import { Icon } from "astro-icon/components";
     <div id="back-to-top-btn" class="back-to-top-btn z-100 hide flex items-center rounded-2xl overflow-hidden transition"
          onclick="backToTop()">
         <button aria-label="Back to Top" class="btn-card h-full w-full">
-            <Icon name="material-symbols:keyboard-arrow-up-rounded" class="mx-auto"></Icon>
+            <svg class="mx-auto" width="28" height="28"><use href="/assets/icons.svg#icon-keyboard-arrow-up-rounded"></use></svg>
         </button>
     </div>
 </div>

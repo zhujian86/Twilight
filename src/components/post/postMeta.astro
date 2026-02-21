@@ -1,6 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
-
 import { getCategoryUrl, getTagUrl, url } from "@utils/url";
 import { getCategoryPathParts } from "@utils/category";
 import { formatDateToYYYYMMDD } from "@utils/date";
@@ -48,7 +46,7 @@ const umamiBaseUrl = umamiConfig.baseUrl || "";
     <!-- publish date -->
     <div class="flex items-center">
         <div class="meta-icon">
-            <Icon name="material-symbols:calendar-today-outline-rounded" class="text-xl"></Icon>
+            <svg class="text-xl" width="20" height="20"><use href="/assets/icons.svg#icon-calendar-today"></use></svg>
         </div>
         <span class="text-50 text-sm font-medium">{formatDateToYYYYMMDD(published)}</span>
     </div>
@@ -56,7 +54,7 @@ const umamiBaseUrl = umamiConfig.baseUrl || "";
     {!hideUpdateDate && updated && updated.getTime() !== published.getTime() && (
         <div class="flex items-center">
             <div class="meta-icon">
-                <Icon name="material-symbols:edit-calendar-outline-rounded" class="text-xl"></Icon>
+                <svg class="text-xl" width="20" height="20"><use href="/assets/icons.svg#icon-edit-calendar"></use></svg>
             </div>
             <span class="text-50 text-sm font-medium">{formatDateToYYYYMMDD(updated)}</span>
         </div>
@@ -64,7 +62,7 @@ const umamiBaseUrl = umamiConfig.baseUrl || "";
     <!-- categories -->
     <div class="flex items-center">
         <div class="meta-icon">
-            <Icon name="material-symbols:book-2-outline-rounded" class="text-xl"></Icon>
+            <svg class="text-xl" width="20" height="20"><use href="/assets/icons.svg#icon-book-2"></use></svg>
         </div>
         <div class="flex flex-row flex-nowrap items-center">
             {categoryParts && categoryParts.length > 0 ? (
@@ -95,7 +93,7 @@ const umamiBaseUrl = umamiConfig.baseUrl || "";
     <!-- tags -->
     <div class:list={["items-center", {"flex": !hideTagsForMobile, "hidden md:flex": hideTagsForMobile}]}>
         <div class="meta-icon">
-            <Icon name="material-symbols:tag-rounded" class="text-xl"></Icon>
+            <svg class="text-xl" width="20" height="20"><use href="/assets/icons.svg#icon-tag"></use></svg>
         </div>
         <div class="flex flex-row flex-nowrap items-center">
             {(tags && tags.length > 0) && tags.map((tag, i) => (
@@ -121,7 +119,7 @@ const umamiBaseUrl = umamiConfig.baseUrl || "";
             data-i18n-error={i18n(I18nKey.statsError)}
         >
             <div class="meta-icon">
-                <Icon name="material-symbols:visibility-outline-rounded" class="text-xl"></Icon>
+                <svg class="text-xl" width="20" height="20"><use href="/assets/icons.svg#icon-visibility"></use></svg>
             </div>
             <span class="text-50 text-sm font-medium page-views-display">{i18n(I18nKey.statsLoading)}</span>
         </div>

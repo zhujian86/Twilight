@@ -1,6 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
-
 import { announcementConfig } from "@/config";
 import { i18n } from "@i18n/translation";
 import I18nKey from "@i18n/i18nKey";
@@ -49,7 +47,7 @@ const style = Astro.props.style;
                     onclick="closeAnnouncement()"
                     aria-label={i18n(I18nKey.announcementClose)}
                 >
-                    <Icon name="fa6-solid:xmark" class="text-sm" />
+                    <svg class="text-sm" width="14" height="14"><use href="/assets/icons.svg#icon-xmark"></use></svg>
                 </button>
             )}
         </div>

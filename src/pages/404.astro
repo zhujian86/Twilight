@@ -1,6 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
-
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import GridLayout from "@layouts/grid.astro";
@@ -16,7 +14,7 @@ import GridLayout from "@layouts/grid.astro";
 
             <!-- 404 图标 -->
             <div class="mb-6">
-                <Icon name="material-symbols:error-outline" class="text-6xl text-(--primary)" />
+                <svg class="text-6xl text-(--primary)" width="96" height="96"><use href="/assets/icons.svg#icon-error"></use></svg>
             </div>
 
             <!-- 标题 -->
@@ -34,16 +32,16 @@ import GridLayout from "@layouts/grid.astro";
                 href="/"
                 class="inline-flex items-center gap-2 px-6 py-3 bg-(--primary) text-white rounded-(--radius-large) hover:bg-(--primary-dark) transition-colors duration-300 font-medium"
             >
-                <Icon name="material-symbols:home" class="text-xl" />
+                <svg class="text-xl" width="20" height="20"><use href="/assets/icons.svg#icon-home"></use></svg>
                 {i18n(I18nKey.backToHome)}
             </a>
 
             <!-- 装饰性元素 -->
             <div class="absolute top-4 left-4 opacity-10">
-                <Icon name="material-symbols:sentiment-sad" class="text-4xl text-(--primary)" />
+                <svg class="text-4xl text-(--primary)" width="64" height="64"><use href="/assets/icons.svg#icon-sentiment-sad"></use></svg>
             </div>
             <div class="absolute bottom-4 right-4 opacity-10">
-                <Icon name="material-symbols:search-off" class="text-4xl text-(--primary)" />
+                <svg class="text-4xl text-(--primary)" width="64" height="64"><use href="/assets/icons.svg#icon-search-off"></use></svg>
             </div>
         </div>
     </div>

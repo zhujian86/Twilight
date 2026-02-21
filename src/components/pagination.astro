@@ -1,6 +1,5 @@
 ---
 import type { Page } from "astro";
-import { Icon } from "astro-icon/components";
 
 import { url } from "@utils/url";
 
@@ -59,12 +58,12 @@ const getPageUrl = (p: number) => {
            {"disabled": page.url.prev == undefined}
        ]}
     >
-        <Icon name="material-symbols:chevron-left-rounded" class="text-[1.75rem]"></Icon>
+        <svg class="text-[1.75rem]" width="28" height="28"><use href="/assets/icons.svg#icon-chevron-left-rounded"></use></svg>
     </a>
     <div class="bg-(--card-bg) flex flex-row rounded-lg items-center text-neutral-700 dark:text-neutral-300 font-bold">
         {pages.map((p) => {
             if (p == HIDDEN)
-                return <Icon name="material-symbols:more-horiz" class="mx-1"/>;
+                return <svg class="mx-1 text-[1.75rem]" width="28" height="28"><use href="/assets/icons.svg#icon-more-horiz"></use></svg>;
             if (p == page.currentPage)
                 return <div class="h-11 w-11 rounded-lg bg-(--primary) flex items-center justify-center
                     font-bold text-white dark:text-black/70"
@@ -81,6 +80,6 @@ const getPageUrl = (p: number) => {
            {"disabled": page.url.next == undefined}
        ]}
     >
-        <Icon name="material-symbols:chevron-right-rounded" class="text-[1.75rem]"></Icon>
+        <svg class="text-[1.75rem]" width="28" height="28"><use href="/assets/icons.svg#icon-chevron-right-rounded"></use></svg>
     </a>
 </div>

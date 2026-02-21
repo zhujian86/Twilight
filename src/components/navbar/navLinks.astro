@@ -1,6 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
-
 import { type NavbarLink } from "@/types/config";
 import { url } from "@utils/url";
 
@@ -22,9 +20,9 @@ const { link, class: className } = Astro.props;
         data-link-name={link.name}
     >
         <div class="flex items-center">
-            {link.icon && <Icon name={link.icon} class="text-[1.1rem] nav-link-icon" />}
+            {link.icon && <svg class="text-[1.1rem] nav-link-icon" width="18" height="18"><use href={`/assets/icons.svg#icon-${link.icon.replace('material-symbols:', '').replace('fa6-solid:', '').replace('fa6-brands:', '').replace('fa6-regular:', '').replace('mdi:', '')}`}></use></svg>}
             <span class="nav-link-text ml-2 hidden lg:inline">{link.name}</span>
-            {link.external && <Icon name="fa6-solid:arrow-up-right-from-square" class="text-[0.875rem] transition -translate-y-px ml-1 text-black/20 dark:text-white/20" />}
+            {link.external && <svg class="text-[0.875rem] transition -translate-y-px ml-1 text-black/20 dark:text-white/20" width="14" height="14"><use href="/assets/icons.svg#icon-external"></use></svg>}
         </div>
     </a>
 </div>

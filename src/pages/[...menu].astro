@@ -1,6 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
-
 import { type NavbarLink } from "@/types/config";
 import { navbarConfig } from "@/config";
 import { LinkPresets } from "@constants/link-presets";
@@ -68,7 +66,7 @@ const pageDescription = link.description || "";
                         class="menu-card group flex flex-col items-center justify-center p-8 rounded-xl border transition-all duration-300"
                     >
                         <div class="icon-wrapper w-16 h-16 flex items-center justify-center rounded-full mb-4 transition-all duration-300">
-                            {child.icon && <Icon name={child.icon} class="text-3xl" />}
+                            {child.icon && <svg class="text-3xl" width="48" height="48"><use href={`/assets/icons.svg#icon-${child.icon.replace('fa6-brands:', '').replace('fa6-solid:', '').replace('fa6-regular:', '').replace('material-symbols:', '').replace('mdi:', '')}`}></use></svg>}
                         </div>
                         <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100 group-hover:text-(--primary) transition-colors duration-300 text-center">
                             {child.name}
