@@ -66,6 +66,7 @@ enum I18nKey {
     notFoundDescription = "notFoundDescription",
     backToHome = "backToHome",
 
+    exhibition = "exhibition",
     // 项目展示页面
     projects = "projects",
     projectsSubtitle = "projectsSubtitle",

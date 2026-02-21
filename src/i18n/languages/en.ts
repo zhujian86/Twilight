@@ -69,6 +69,8 @@ export const en: Translation = {
     [Key.notFoundDescription]: "Sorry, the page you visited does not exist or has been moved.",
     [Key.backToHome]: "Back to Home",
 
+    [Key.exhibition]: "Exhibition",
+
     // Projects Page
     [Key.projects]: "Projects",
     [Key.projectsSubtitle]: "My development project portfolio",
