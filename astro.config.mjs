@@ -180,6 +180,7 @@ export default defineConfig({
     ],
   },
   vite: {
+    assetsInclude: ["**/*.bak"],
     plugins: [tailwindcss()],
     build: {
       rollupOptions: {
