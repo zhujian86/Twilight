@@ -1,0 +1,13 @@
+{
+  "name": "Python",
+  "description": "a popular programming language.",
+  "icon": "logos:python-icon",
+  "category": "ai",
+  "level": "intermediate",
+  "experience": {
+    "years": 3,
+    "months": 0
+  },
+  "projects": ["DataAgent"],
+  "color": "#FF3E00"
+}

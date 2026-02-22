@@ -1,0 +1,13 @@
+{
+  "name": "Java",
+  "description": "a popular programming language.",
+  "icon": "logos:java-icon",
+  "category": "backend",
+  "level": "advanced",
+  "experience": {
+    "years": 8,
+    "months": 0
+  },
+  "projects": ["Data Platform"],
+  "color": "#FF3E00"
+}

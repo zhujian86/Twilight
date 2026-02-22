@@ -1,0 +1,13 @@
+{
+  "name": "Apache Flink",
+  "description": "a multi-language engine for executing data engineering.",
+  "icon": "logos:flink-icon",
+  "category": "backend",
+  "level": "advanced",
+  "experience": {
+    "years": 5,
+    "months": 0
+  },
+  "projects": ["Data Platform"],
+  "color": "#FF3E00"
+}
