@@ -11,3 +11,4 @@ lang: 'zh'
 
 # Pandas速查手册
 
+<iframe src="/assets/pdf/Pandas速查表打印版.pdf" width="100%" height="768"></iframe>
