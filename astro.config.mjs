@@ -5,7 +5,7 @@ import svelte, { vitePreprocess } from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
 import swup from "@swup/astro";
 import sitemap from "@astrojs/sitemap";
-import cloudflarePages from "@astrojs/cloudflare";
+import cloudflare from "@astrojs/cloudflare";
 import edgeone from "@edgeone/astro";
 import vercel from "@astrojs/vercel";
 import decapCmsOauth from "astro-decap-cms-oauth";
@@ -31,22 +31,33 @@ import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import { remarkMermaid } from "./src/plugins/remark-mermaid.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 
-// Choose adapter depending on deployment environment
-const adapter = process.env.GITHUB_ACTIONS
-  ? undefined
-  : process.env.CF_PAGES
-    ? cloudflarePages()
-    : process.env.EDGEONE
-      ? edgeone()
+// Choose deployment integration based on environment
+const deploymentIntegration = process.env.CF_PAGES
+  ? cloudflare()
+  : process.env.EDGEONE
+    ? edgeone()
+    : process.env.GITHUB_ACTIONS
+      ? undefined
       : vercel({ mode: "serverless" });
+
+// Build integrations array, only including deployment integration if set
+const baseIntegrations = [
+  decapCmsOauth({
+    decapCMSVersion: "3.9.0",
+    oauthDisabled: true, // Disable it to use oauth, requires .env configuration
+  }),
+];
+
+const integrations = deploymentIntegration
+  ? [deploymentIntegration, ...baseIntegrations]
+  : baseIntegrations;
 
 // Ref: https://astro.build/config
 export default defineConfig({
   site: siteConfig.siteURL,
   base: "/",
   trailingSlash: "always",
-  adapter: adapter,
-  integrations: [
+  integrations: [...integrations,
     decapCmsOauth({
       decapCMSVersion: "3.9.0",
       oauthDisabled: true, // Disable it to use oauth, requires .env configuration
