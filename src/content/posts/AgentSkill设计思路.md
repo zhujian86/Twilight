@@ -1,5 +1,5 @@
 ---
-title: Skill设计思路
+title: Agent Skill设计思路
 published: 2026-02-20
 description: ''
 cover: ''
@@ -9,7 +9,7 @@ draft: false
 lang: 'zh'
 ---
 
-# Skill设计思路
+# Agent Skill设计思路
 
 ## 为什么要Skill
 
