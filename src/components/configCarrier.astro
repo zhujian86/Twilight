@@ -1,5 +1,8 @@
 ---
 import { siteConfig } from "@/config";
+import { defaultFavicons } from "@constants/icon";
+
+const favicons = siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons;
 ---
 
 <!-- 全局配置载体 -->
@@ -9,5 +12,6 @@ import { siteConfig } from "@/config";
     data-lang={siteConfig.lang}
     data-theme={siteConfig.defaultTheme}
     data-wallpaper-mode={siteConfig.wallpaper.mode}
+    data-favicons={JSON.stringify(favicons)}
 >
 </div>

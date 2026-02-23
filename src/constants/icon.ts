@@ -5,11 +5,11 @@ export const defaultFavicons: Favicon[] = [
     {
         src: "/favicon/icon-light.ico",
         theme: "light",
-        sizes: "96x96",
+        sizes: "128x128",
     },
     {
         src: "/favicon/icon-dark.ico",
         theme: "dark",
-        sizes: "96x96",
+        sizes: "128x128",
     },
 ];

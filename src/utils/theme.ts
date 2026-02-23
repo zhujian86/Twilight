@@ -11,6 +11,63 @@ import {
 } from "@/config";
 
 
+// Favicon 配置类型
+interface FaviconConfig {
+    src: string;
+    theme?: "light" | "dark";
+    sizes?: string;
+}
+
+// 从 config-carrier 获取 favicon 配置
+function getFaviconConfigs(): FaviconConfig[] {
+    if (typeof document === "undefined") return [];
+    const configCarrier = document.getElementById("config-carrier");
+    const faviconsData = configCarrier?.dataset.favicons;
+    if (faviconsData) {
+        try {
+            return JSON.parse(faviconsData);
+        } catch {
+            return [];
+        }
+    }
+    return [];
+}
+
+// 更新 favicon 根据当前主题
+function updateFavicon(isDark: boolean): void {
+    if (typeof document === "undefined") return;
+
+    const favicons = getFaviconConfigs();
+    if (favicons.length === 0) return;
+
+    // 找到匹配当前主题的 favicon
+    const targetTheme = isDark ? "dark" : "light";
+    const targetFavicon = favicons.find(f => f.theme === targetTheme);
+
+    if (!targetFavicon) return;
+
+    // 查找或创建 favicon link 元素
+    let link = document.querySelector('link[rel="icon"][data-dynamic="true"]') as HTMLLinkElement;
+
+    if (!link) {
+        // 移除所有旧的动态 favicon
+        document.querySelectorAll('link[rel="icon"][data-dynamic="true"]').forEach(el => el.remove());
+
+        // 创建新的 favicon link 元素
+        link = document.createElement("link");
+        link.rel = "icon";
+        link.setAttribute("data-dynamic", "true");
+        if (targetFavicon.sizes) {
+            link.sizes = targetFavicon.sizes;
+        }
+        document.head.appendChild(link);
+    }
+
+    // 更新 href
+    link.href = targetFavicon.src;
+}
+
+
 // Function to apply theme to document
 export function applyThemeToDocument(theme: LIGHT_DARK_MODE, force = false) {
     if (typeof document === "undefined") return;
@@ -54,6 +111,8 @@ export function applyThemeToDocument(theme: LIGHT_DARK_MODE, force = false) {
             } else {
                 document.documentElement.classList.remove("dark");
             }
+            // 更新 favicon
+            updateFavicon(targetIsDark);
         }
         // Set the theme for Expressive Code based on current mode
         document.documentElement.setAttribute("data-theme", targetTheme);
@@ -98,6 +157,20 @@ export function initTheme(): void {
     if (typeof window === "undefined") return;
     const storedTheme = getStoredTheme();
     applyThemeToDocument(storedTheme, true);
+    // 初始化 favicon
+    let isDark = false;
+    switch (storedTheme) {
+        case LIGHT_MODE:
+            isDark = false;
+            break;
+        case DARK_MODE:
+            isDark = true;
+            break;
+        case SYSTEM_MODE:
+            isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            break;
+    }
+    updateFavicon(isDark);
     // 监听系统主题变化
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
         const currentStored = getStoredTheme();
